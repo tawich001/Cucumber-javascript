@@ -1,0 +1,23 @@
+{
+  "name": "cucumber-guide",
+  "version": "1.0.0",
+  "description": "Cucumber with Nodejs 1. install yeoman with \"npm install -g yo\" 2. install cucumber generator with \"npm install -g generator-cucumber generator-cucumber-step-definitions\" 3. create project folder  4. go to project folder 5. new terminal or command prompt and go to your project folder and run \"yo cucumber\" 6. create package.json with \"npm init --yes\" 6. install dependency with \"npm install zombie cucumber --save-dev\" 7. in package.json find \"test\" keyword and replace value with \"cucumber-js\" 8. run \"npm test\" in terminal or command prompt.      if you error you can generate sample.steps.js with \"yo cucumber-step-definitions\" and you defind path of feature file for generated.",
+  "main": "index.js",
+  "dependencies": {
+    "got": "^11.5.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "cucumber": "^6.0.5",
+    "http-status-codes": "^1.4.0",
+    "requester": "^0.1.22",
+    "unexpected": "^11.14.0",
+    "zombie": "^6.1.4"
+  },
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
