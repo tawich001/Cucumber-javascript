@@ -1,11 +1,15 @@
-const {defineSupportCode} = require('cucumber');
+const { Given } = require('cucumber');
+const { When } = require('cucumber');
+const { Then } = require('cucumber');
 const got = require('got');
 const assert = require('assert');
 //const httpStatusCodes = require('http-status-codes');
 //const expect = require('unexpected');
 //const requester = require('requester');
+const fetch = require('node-fetch');
+const buildUrl = require('build-url');
 
-defineSupportCode(function ({Given, When, Then}) {
+
   
   Given('User try to test API', function () {
     // Write code here that turns the phrase above into concrete actions
@@ -29,14 +33,26 @@ defineSupportCode(function ({Given, When, Then}) {
   });
 
   When('User call {string} for test and data is', async function (url, docString) {
-  //console.log(docString);
-  await got.put(url, docString); 
+  console.log(docString);
+  /*
+  var data = {
+    headers: { 'Content-Type': 'application/json' },
+    json: true,
+    body: docString
+};
+console.log(data);
+*/
+  test = await got.post(url, docString);
+  let statusCodeResponse = JSON.parse(test.body);
+  console.log(statusCodeResponse);
+  //assert.equal("200", statusCodeResponse);
 
   });
 
   Then('User got name: from server {string}  name  {string}', function (string, string2) {
     // Write code here that turns the phrase above into concrete actions
     return 'true';
+    
   });
 
-});
+
