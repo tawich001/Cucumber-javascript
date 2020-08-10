@@ -33,19 +33,19 @@ const buildUrl = require('build-url');
   });
 
   When('User call {string} for test and data is', async function (url, docString) {
-  console.log(docString);
-  /*
+  //console.log(docString);
+  
   var data = {
     headers: { 'Content-Type': 'application/json' },
     json: true,
     body: docString
 };
-console.log(data);
-*/
-  test = await got.post(url, docString);
-  let statusCodeResponse = JSON.parse(test.body);
+console.log(JSON.stringify(data));
+  
+  test = await got.post(url, JSON.stringify(data));
+  let statusCodeResponse = JSON.parse(test.statusCode);
   console.log(statusCodeResponse);
-  //assert.equal("200", statusCodeResponse);
+  assert.equal("201", statusCodeResponse);
 
   });
 
