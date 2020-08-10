@@ -1,6 +1,10 @@
 Cucumber with Nodejs
 1. install yeoman with "npm install -g yo"
 2. install cucumber generator with "npm install -g generator-cucumber generator-cucumber-step-definitions"
+2.1 npm install got
+2.2 npm install assert
+2.3 npm install node-fetch
+2.4 npm install build-url
 3. create project folder 
 4. go to project folder
 5. new terminal or command prompt and go to your project folder and run "yo cucumber"
