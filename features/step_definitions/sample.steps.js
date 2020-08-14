@@ -19,7 +19,11 @@ const buildUrl = require('build-url');
   When('User call {string} for test', async function (url) {
 
     let res = await got.get(url);
-    let json = JSON.parse(res.body);  
+    //console.log(res);
+    let json = JSON.parse(res.statusCode);  
+    console.log(json);
+    assert.equal("200", json);
+
     
   
 
@@ -27,9 +31,11 @@ const buildUrl = require('build-url');
   Then('User got author: from server {string}  = {string}', async function (url, author) {
     // Write code here that turns the phrase above into concrete 
     let res = await got.get(url);
-    let json = JSON.parse(res.body);
-    //console.log(json.data[1].id);
-    return assert.equal(json.data[1].id, author);
+    let json = JSON.parse(res.statusCode);
+    let body = JSON.parse(res.body);
+    console.log(body);
+
+    return assert.equal(author, json);
   });
 
   When('User call {string} for test and data is', async function (url, docString) {
